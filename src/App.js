@@ -36,7 +36,6 @@ function App() {
     <Route path='/moredetails' element={<MoreDetails/>}/>
     <Route path='*' element={<NotFound/>}/>
   </Routes>
-  <Player />
   <MobileNav/>
 
   </>
