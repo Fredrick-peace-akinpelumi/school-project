@@ -1,0 +1,48 @@
+import React, {useState,} from 'react'
+import { NavLink } from 'react-router-dom'
+import useFetchDetails from '../../customHooks/UseFetchDetails'
+import Likes from '../UsersData/Likes'
+import UsersData from '../UsersData/UsersData'
+import './Profile.css'
+
+const Profile = () => {
+  const [show, setshow] = useState(false)
+  const [showButt, setshowButt] = useState(false)
+  const [first] = useFetchDetails();
+  // let show = false
+
+
+ const showDetails =()=>{
+    setshow(true)
+    setshowButt(true)
+ }
+ const hideDetails=()=>{
+  setshow(false)
+  setshowButt(false)
+ }
+  return (
+      <>
+      <div className="container ">
+        <div className="d-flex justify-content-between">
+        <div className='mt-4 d-flex'>
+        <div className='pics'></div>
+        <h3 className='text-white '>Welcome</h3>
+        <h4 className='text-white m-auto'>{first&&first.username}</h4>
+        </div>
+
+       <div>
+       {!showButt? <NavLink><i onClick={()=>showDetails()} className="fa-sharp float mt-5  fs-3 fa-solid fa-arrow-down text-white"></i></NavLink>:""}
+        {showButt? <NavLink><i onClick={()=>hideDetails()} className="fa-sharp float mt-5  fs-3 fa-solid fa-arrow-down text-white"></i></NavLink> :""}
+       </div>
+
+        </div>
+        <hr className='text-white'/>
+        {show ?<UsersData/>:""}
+        
+      </div>
+      <Likes/>
+    </>
+  )
+}
+
+export default Profile

@@ -1,0 +1,40 @@
+.NewRelease{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top: 5px;
+}
+.NewRelease>h3{
+    color: white;
+    line-height: 1.4rem;
+}
+.NewRelease>div{
+    display: flex;
+    gap: 2rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+}
+.newReleaseTrack{
+    display: flex;
+    flex-direction: column;
+}
+.newReleaseTrack>img{
+    width: 153px;
+    height: 153px;
+}
+
+.NewRelease::-webkit-scrollbar {
+    width: 4px;
+    border: 1px solid #d5d5d5;
+  }
+  
+  .NewRelease::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+  }
+  
+  .NewRelease::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: #b0b0b0;
+  }

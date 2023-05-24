@@ -1,0 +1,42 @@
+.LandingPage2{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-left: 7rem;
+}
+@media (max-width:520px) {
+    .LandingPage2{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+.first-section{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+@media (max-width:520px) {
+    .first-section{
+        flex-direction: column;
+    }
+    
+}
+.first-section>div:nth-of-type(1){
+    width: 60%;
+}
+@media (max-width:520px) {
+    .first-section>div:nth-of-type(1){
+        width: 96%;
+    }
+    
+}
+.first-section>div:nth-of-type(2){
+    width: 40%;
+}
+@media (max-width:520px) {
+    .first-section>div:nth-of-type(2){
+        width: 96%;
+    }
+    
+}

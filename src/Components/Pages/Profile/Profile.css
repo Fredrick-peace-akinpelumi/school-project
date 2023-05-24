@@ -1,0 +1,15 @@
+.pics{
+    width: 10vh;
+    height: 10vh !important;
+    background-color: white;
+    border-radius: 50%;
+    background-image: url('/public/images/head.PNG');
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content:center;
+}
+.float{
+    float: right ;
+    /* margin-top:7vh;
+    margin-left: 100vh; */
+}

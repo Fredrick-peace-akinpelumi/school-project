@@ -1,0 +1,50 @@
+.list1{
+    /* background-image: url('/public/images/list1.png'); */
+    box-sizing: border-box;
+margin-top: 5vh;
+/* position: absolute; */
+width: 213px;
+height: 234px;
+background: linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), url('/public/images/list1.png');
+border: 1px solid rgba(255, 255, 255, 0.03);
+border-radius: 20px;
+}
+.list2{
+    /* background-image: url('/public/images/list1.png'); */
+    box-sizing: border-box;
+margin-top: 5vh;
+/* position: absolute; */
+width: 213px;
+height: 234px;
+background: linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), url('/public/images/timeless.PNG');
+background-repeat: no-repeat;
+border: 1px solid rgba(255, 255, 255, 0.03);
+border-radius: 20px;
+}
+
+.list3{
+    /* background-image: url('/public/images/list1.png'); */
+    box-sizing: border-box;
+margin-top: 5vh;
+/* position: absolute; */
+width: 213px;
+height: 234px;
+background: linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), url('/public/images/grit.PNG');
+background-repeat: no-repeat;
+background-size: contain;
+border: 1px solid rgba(255, 255, 255, 0.03);
+border-radius: 20px;
+}
+.list4{
+    /* background-image: url('/public/images/list1.png'); */
+    box-sizing: border-box;
+margin-top: 5vh;
+/* position: absolute; */
+width: 213px;
+height: 234px;
+background: linear-gradient(179.89deg, rgba(0, 0, 0, 0) 0.1%, rgba(15, 18, 19, 0.85) 80.67%), url('/public/images/high.PNG');
+background-repeat: no-repeat;
+background-size: cover;
+border: 1px solid rgba(255, 255, 255, 0.03);
+border-radius: 20px;
+}

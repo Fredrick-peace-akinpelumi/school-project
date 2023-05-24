@@ -1,0 +1,38 @@
+.sec2{
+position: absolute;
+width: 52px;
+/* height: 20px; */
+ margin-left: 20px;
+background: #1A1E1F;
+border-radius: 32px;
+}
+.sec3{
+position: absolute;
+width: 52px;
+height: 127px;
+margin-left: 20px;
+margin-top: 22vh;
+
+
+
+/* dark-alt */
+
+background: #1A1E1F;
+border-radius: 32px;
+}
+.icon1{
+color: #FACD66;
+}
+.icon2{
+
+color: #737570;
+}
+.icon2:hover{
+    color: #FACD66;
+}
+
+/* @media (max-width: 300px) {
+    .responsive{
+        display: none;
+    }
+} */
