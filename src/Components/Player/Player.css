@@ -29,14 +29,46 @@
     align-items: center;
     justify-content: center;
 }
-.Player>div:nth-of-type(2)>div{
+.Player>div:nth-of-type(2)>div:nth-of-type(1){
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 
 }
-.Player>div:nth-of-type(2)>input{
+.Player>div:nth-of-type(2)>div:nth-of-type(2){
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
     width: 100%;
+}
+.Player>div:nth-of-type(2)>div:nth-of-type(2)>input{
+    width: 80%;
 }
 .Player>div:nth-of-type(3){
     width: 20%;
     display: flex;
+    align-items: center;
+    gap: .6rem;
 }
+.Player>div:nth-of-type(3)>i{
+    font-size: 1.8rem;
+}
+.bigIcon{
+    font-size: 3.3rem;
+}
+.notSoBig{
+    font-size: 1.4rem;
+}
+
+.music-range{
+    --range-progress: 0;
+    /* ... */
+  }
+  
+.music-range::before {
+    /* ... */
+    background: #f50;
+    width: var(--range-progress);
+    /* ... */
+  }
