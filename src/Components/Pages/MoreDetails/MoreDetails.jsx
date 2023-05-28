@@ -3,15 +3,19 @@ import './MoreDetail.css'
 import chartpic from "../../../images/chart.png"
 import head from "../../../images/head.PNG"
 import Comment from '../../Comments/Comment'
+import { MusicState } from '../../../context/musicContext'
 
 const MoreDetails = () => {
+    const {playList,songIndex}=MusicState()
+
+    const track=playList[songIndex]
   return (
     <>
     <div className="container">
         <div className="row">
             <div className="card col-lg-6 mx-auto h-50">
                 <div className="card-body">
-                    <img src={chartpic} className='card-image' alt="" />
+                    <img src={track?.cover} className='card-image' alt="" />
                     <div className="card-title text-center mt-3">
                         <h3>Asake ft Olamide</h3>
                         <p>Amapiano</p>

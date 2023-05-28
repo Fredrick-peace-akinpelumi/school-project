@@ -14,7 +14,7 @@ import UploadEp from './Components/Pages/Uploads/Upload/UploadEp';
 import MobileNav from './Components/Static/Navbar/MobileNav/MobileNav';
 import UploadAlbum from './Components/Pages/Uploads/Upload/UploadAlbum';
 import LandingPage2 from './Components/Pages/LandingPage2.0/LandingPage2.0';
-// import Player from './Components/Player/Player';
+import Player from './Components/Player/Player';
 import UserUploads from './Components/Pages/Uploads/UserUploads/UserUploads';
 import MoreDetails from './Components/Pages/MoreDetails/MoreDetails';
 import TimeAgo from 'javascript-time-ago'
@@ -30,19 +30,22 @@ function App() {
   <>
   <Navbar/>
   <Routes>
-    <Route path='/' element={<LandingPage2/>}/>
-    <Route path="Register" element={<Register/>} />
-    <Route path='Profile' element={<Profile/>}/>
-    <Route path='login' element={<Login/>}/>
-    <Route path='playlist' element={<PlayList/>}/>
-    <Route path='category' element={<Category/>}/>
-    <Route path='uploadSingle' element={<UploadSingle/>}/>
-    <Route path='/uploadEp' element={<UploadEp/>}/>
-    <Route path='/uploadAlbum' element={<UploadAlbum/>}/>
-    <Route path='/useruploads' element={<UserUploads/>}/>
-    <Route path='/moredetails' element={<MoreDetails/>}/>
-    <Route path='*' element={<NotFound/>}/>
+    <Route>
+      <Route path='/' element={<LandingPage2/>}/>
+      <Route path="Register" element={<Register/>} />
+      <Route path='Profile' element={<Profile/>}/>
+      <Route path='login' element={<Login/>}/>
+      <Route path='playlist' element={<PlayList/>}/>
+      <Route path='category' element={<Category/>}/>
+      <Route path='uploadSingle' element={<UploadSingle/>}/>
+      <Route path='/uploadEp' element={<UploadEp/>}/>
+      <Route path='/uploadAlbum' element={<UploadAlbum/>}/>
+      <Route path='/useruploads' element={<UserUploads/>}/>
+      <Route path='/moredetails' element={<MoreDetails/>}/>
+      <Route path='*' element={<NotFound/>}/>
+    </Route>
   </Routes>
+  <Player />
   <MobileNav/>
 
   </>

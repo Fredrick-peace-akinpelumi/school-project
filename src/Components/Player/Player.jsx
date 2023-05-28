@@ -7,6 +7,8 @@ import { useCallback, useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import format from "format-duration"
+import { MusicState } from "../../context/musicContext";
+
 
 const Player=()=>{
     const audioRef=useRef()
@@ -17,6 +19,10 @@ const Player=()=>{
     const [isShuffle, setIsShuffle]=useState(false)
     const [duration,setDuration]=useState(0)
     const [currentTime, setCurrentTime]=useState(0)
+    const {playList,songIndex,setSongIndex}=MusicState()
+    const track=playList[songIndex]
+
+    console.log(track)
 
     const Play=()=>{
         audioRef.current.play()
@@ -59,6 +65,27 @@ const Player=()=>{
         handleChange()
         
     }
+    const prev=()=>{
+        const length=playList.length
+        if(songIndex===0){
+            setSongIndex(length-1)
+        }else{
+            setSongIndex(songIndex-1)
+        }
+        
+        
+        //setSongIndex(songIndex-1)
+    }
+    const next=()=>{
+        const length=playList.length
+        if(songIndex>=length-1){
+            setSongIndex(0)
+        }else{
+            setSongIndex(songIndex+1)
+        }
+        console.log(songIndex)
+        //setSongIndex(songIndex-1)
+    }
 
     useEffect(()=>{
         const vol=()=>{
@@ -84,24 +111,24 @@ const Player=()=>{
     return(
         <div className="Player">
             <div>
-                <img src={trackImg} alt="track" />
+                <img src={track?.cover} alt="track" />
                 <div>
-                    <span>Olamide</span>
-                    <span>1999</span>
+                    <span>{track?.artist}</span>
+                    <span>{track?.musicTitle}</span>
                 </div>
 
             </div>
             <div>
                 <div>
                     {isShuffle?<i className="fa notSoBig fa-random" aria-hidden="true"></i>:<i className="fa notSoBig fa-random" aria-hidden="true"></i>}
-                    <i className="fa notSoBig fa-step-backward" aria-hidden="true"></i>
+                    <i onClick={prev} className="fa notSoBig fa-step-backward" aria-hidden="true"></i>
                     {isPlaying?<i onClick={Pause} className="fa bigIcon fa-pause-circle-o" aria-hidden="true"></i>:<i onClick={Play} className="fa bigIcon fa-play-circle-o" aria-hidden="true"></i>}
-                    <i className="fa notSoBig fa-step-forward" aria-hidden="true"></i>
+                    <i onClick={next} className="fa notSoBig fa-step-forward" aria-hidden="true"></i>
                     <i className="fa notSoBig fa-stop" aria-hidden="true"></i>
 
 
                 </div>
-                <audio src={music1} ref={audioRef}  onLoadedData={handleLoad} onEndedCapture={(e)=>setIsPlaying(false)}/> 
+                <audio src={track?.music} ref={audioRef}  onLoadedData={handleLoad} onEndedCapture={(e)=>setIsPlaying(false)}/> 
                 <div>
                     <span>{format(1000*currentTime)}</span>
                     <input type="range" className="music-range" value={currentTime} defaultValue={0}  onChange={handleProgressChange} ref={progressBarRef}  max={duration} />
