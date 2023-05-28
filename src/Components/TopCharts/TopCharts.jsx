@@ -1,6 +1,6 @@
 import "./TopCharts.css"
-
 import chartpic from "../../images/chart.png"
+
 
 const TopCharts=()=>{
 

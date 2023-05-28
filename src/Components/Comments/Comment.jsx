@@ -63,8 +63,7 @@ function Comment() {
               e.code ==="Enter" && UploadComment();
             }}
             onChange={(e)=>setComment(e.target.value)}
-           
-             type="text" placeholder='Write a public comment..' className='form-control bg-dark text-secondary shadow-sm border-0 p-3 mb-3'/>
+             type="text" placeholder='Write a public comment..' className='form-control bg-dark text-white shadow-lg border-1 p-3 mb-3'/>
           <ClipLoader loading={Loading} color='white' className='mx-auto' size={30} />
 
         {Object.values(getComment).map((item,id)=>{
