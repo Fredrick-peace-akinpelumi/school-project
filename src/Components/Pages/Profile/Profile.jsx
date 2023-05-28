@@ -26,8 +26,10 @@ const Profile = () => {
         <div className="d-flex justify-content-between">
         <div className='mt-4 d-flex'>
         <div className='pics'></div>
-        <h3 className='text-white '>Welcome</h3>
-        <h4 className='text-white m-auto'>{first&&first.username}</h4>
+       <div className='ms-3'>
+       <h3 className='text-white '>Welcome</h3>
+        <h4 className='text-white '>{first&&first.username}</h4>
+       </div>
         </div>
 
        <div>

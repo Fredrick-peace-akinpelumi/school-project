@@ -14,11 +14,18 @@ import UploadEp from './Components/Pages/Uploads/Upload/UploadEp';
 import MobileNav from './Components/Static/Navbar/MobileNav/MobileNav';
 import UploadAlbum from './Components/Pages/Uploads/Upload/UploadAlbum';
 import LandingPage2 from './Components/Pages/LandingPage2.0/LandingPage2.0';
-import Player from './Components/Player/Player';
+// import Player from './Components/Player/Player';
 import UserUploads from './Components/Pages/Uploads/UserUploads/UserUploads';
 import MoreDetails from './Components/Pages/MoreDetails/MoreDetails';
+import TimeAgo from 'javascript-time-ago'
+
+import en from 'javascript-time-ago/locale/en.json'
+import ru from 'javascript-time-ago/locale/ru.json'
 
 function App() {
+  TimeAgo.addDefaultLocale(en)
+  TimeAgo.addLocale(ru)
+  
   return (
   <>
   <Navbar/>
