@@ -11,7 +11,7 @@ const UploadSingle = () => {
     musicTitle: '',
     cover:'',
     music:'',
-    genre:'',
+    genre:'HipHop',
     artist:first&&first.username
   })
   const [previewSource, setpreviewSource] = useState("")
