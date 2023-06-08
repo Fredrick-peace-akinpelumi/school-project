@@ -8,10 +8,10 @@ import { useCookies } from "react-cookie";
 const Navbar = () => {
   const navigate = useNavigate()
 
-    const [cookies,,removecookies]=useCookies(["currentUser"])
+    const [cookies,,removeCookie]=useCookies(["currentUser"])
     const logOut=()=>{
+      removeCookie("currentUser")
         navigate("/")
-        removecookies("currentUser")
     }
   return (
     <>

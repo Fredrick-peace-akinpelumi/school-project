@@ -159,7 +159,7 @@ const UploadAlbum = () => {
             <label htmlFor="" className='text-white'>album Cover</label>
             <input type="file"
               onChange={handleCoverFile}
-              accalbumt='image/*'
+              accept='image/*'
               className='form-control mb-3' />
 
             <div className='shadow p-4'>

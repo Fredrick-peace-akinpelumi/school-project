@@ -6,7 +6,6 @@ import useFetchDetails from '../../../customHooks/UseFetchDetails';
 
 const UploadSingle = () => {
   const [first]=useFetchDetails();
-  // console.log(first&&first.username)
   const [songData, setsongData] = useState({
     musicTitle: '',
     cover:'',
@@ -72,6 +71,9 @@ const UploadSingle = () => {
       const response= await axios.post('http://localhost:5000/api/songs/singles/', {...songData,artist:first&&first.username})
       toast(response.data.message);
       setLoading(false);
+      handleCoverFile("");
+        handleMusicFile("");
+        setsongData("")
     } catch (error) {
       toast(error);
       setLoading(false);
@@ -87,14 +89,12 @@ const UploadSingle = () => {
       musicData.append("file", previewMusic);
       musicData.append("upload_preset","audio-upload");
       musicData.append("cloud_name","daqidvjyp");
-
       try {
         setLoading(true);
         const res= await axios.post("https://api.cloudinary.com/v1_1/daqidvjyp/upload",musicData);
         //setpreviewMusic(res.data.secure_url);
         songData.music = res.data.secure_url;
         setLoading(false);
-        
       } catch (error) {
         console.log(error);
         setLoading(false); 
@@ -126,8 +126,8 @@ const UploadSingle = () => {
               value={songData.genre}
            >
             <option value="HipHop">HipHop</option>
-            <option value="Rock">AfroBeat</option>
-            <option value="Jazz">Amapiano</option>
+            <option value="AfroBeat">AfroBeat</option>
+            <option value="Amapiano">Amapiano</option>
             <option value="classical">classical</option>
            </select>
             </div>

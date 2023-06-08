@@ -1,18 +1,38 @@
 import "./NewRelease.css"
-import trackImg from "../../images/trackImg.png"
+import { useNavigate } from "react-router";
 import { MusicState } from "../../context/musicContext"
+import { PulseLoader } from 'react-spinners';
+import { ToastContainer, toast } from 'react-toastify';
+
+
 
 const NewRelease=()=>{
-    const {allSongs,setSongIndex}=MusicState()
-    console.log(process.env.REACT_APP_API_URL)
+    const navigate = useNavigate()
+    const {allSongs,setSongIndex,loading}=MusicState()
+  
+    if (loading) {
+        return(
+            <div className='text-center mt-5'>
+                <PulseLoader size={30} color="red"/>
+            </div>
+        )   
+    }
+
+    
+    
     return(
+        <>
+      <ToastContainer />
+        
         <div className="NewRelease">
             <h3>New Release</h3>
+            {/* <PulseLoader size={30} color="red"/> */}
             <div>
                 {allSongs?.map((song,index)=>{
                     const handleSongToPlay=()=>{
-                        setSongIndex(index)
-
+                        // setSongIndex(index)
+                        navigate(`/moredetails/${index}`)
+                        
                     }
                     return(
                         <div onClick={()=>handleSongToPlay()} key={song._id} className="newReleaseTrack">
@@ -24,6 +44,7 @@ const NewRelease=()=>{
                 })}
             </div>
         </div>
+        </>
     )
 
 }

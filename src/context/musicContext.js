@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { createContext,useState } from "react";
 import axios from "axios"
 import { useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 export const MusicContext=createContext();
 
@@ -10,20 +12,19 @@ const MusicContextProvider=({children})=>{
     const [allSongs,setAllSongs]=useState([])
     const [loading,setLoading]=useState(false)
     const [songIndex, setSongIndex]=useState(0)
+    
     const apiUrl=process.env.REACT_APP_API_URL
     
     useEffect(()=>{
         const getAllSongs=async()=>{
             setLoading(true)
             try {
-                console.log("gettingData")
                 const {data}= await axios.get(`${apiUrl}/songs/singles`)
-                console.log(data)
                 setAllSongs(data)
                 setPlayList(data)
                 setLoading(false)
             } catch (error) {
-                console.log(error)
+                toast.error(error.message)
                 setLoading(false)
                 
             }

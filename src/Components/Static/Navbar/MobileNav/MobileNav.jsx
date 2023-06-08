@@ -6,10 +6,10 @@ import { useCookies } from "react-cookie";
 const MobileNav = () => {
   const navigate = useNavigate()
 
-  const [cookies,,removecookies]=useCookies(["currentUser"])
+  const [cookies,setCookies,removeCookie]=useCookies(["currentUser"])
   const logOut=()=>{
+    removeCookie("currentUser")
       navigate("/")
-      removecookies("currentUser")
   }
   return (
     <>

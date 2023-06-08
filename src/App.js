@@ -21,6 +21,7 @@ import TimeAgo from 'javascript-time-ago'
 
 import en from 'javascript-time-ago/locale/en.json'
 import ru from 'javascript-time-ago/locale/ru.json'
+import ListDetails from './Components/Pages/List/ListDetails';
 
 function App() {
   TimeAgo.addDefaultLocale(en)
@@ -41,7 +42,8 @@ function App() {
       <Route path='/uploadEp' element={<UploadEp/>}/>
       <Route path='/uploadAlbum' element={<UploadAlbum/>}/>
       <Route path='/useruploads' element={<UserUploads/>}/>
-      <Route path='/moredetails' element={<MoreDetails/>}/>
+      <Route path='/moredetails/:musicdetails' element={<MoreDetails/>}/>
+      <Route path='/listdetails/:trackdetails' element={<ListDetails/>}/> 
       <Route path='*' element={<NotFound/>}/>
     </Route>
   </Routes>

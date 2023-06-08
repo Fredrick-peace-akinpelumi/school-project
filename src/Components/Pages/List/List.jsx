@@ -4,18 +4,23 @@ import axios from 'axios'
 import { PulseLoader } from 'react-spinners';
 import chartpic from "../../../images/trackImg.png"
 import { ToastContainer, toast } from 'react-toastify';
+import { MusicState } from '../../../context/musicContext';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const PlayList = () => {
-    const [getEp, setgetEp] = useState({})
-    const [getAlbum, setgetAlbum] = useState({})
+    const {loading}=MusicState()
+    const [getEp, setgetEp] = useState([])
+    const [getAlbum, setgetAlbum] = useState([])
+
+    const navigate = useNavigate()
     useEffect(() => {
     axios.get('http://localhost:5000/api/songs/extendedPlay/')
     .then((res)=>{
         setgetEp(res.data)
         console.log(res.data);
-        if (!res) {
+        if (loading) {
             return(
                 <div className='text-center mt-5'>
                     <PulseLoader size={30} color="red"/>
@@ -30,13 +35,6 @@ const PlayList = () => {
     .then((res)=>{
         setgetAlbum(res.data)
         console.log(res.data);
-        if (!res) {
-            return(
-                <div className='text-center mt-5'>
-                    <PulseLoader size={30} color="red"/>
-                </div>
-            )   
-        }
     })
     .catch((err)=>{
       toast.error(err);
@@ -55,9 +53,12 @@ const PlayList = () => {
         </div>
         <div className="d-flex flex-wrap gap-5">
             {
-                Object.values(getAlbum).map((album,index)=>{
+                getAlbum?.map((album,index)=>{
+                    const handleAlbumDetails=()=>{
+                        navigate(`listdetails/${index}`)
+                    }
                     return(
-            <div className='list1 mt-3' key={index} >
+            <div className='list1 mt-3' key={index} onClick={()=>handleAlbumDetails()}>
                             
                         <div className="">
                             <div className=''>
@@ -81,9 +82,12 @@ const PlayList = () => {
         </div>
         <div className="d-flex flex-wrap gap-5">
             {
-                Object.values(getEp).map((ep,index)=>{
+                getEp?.map((ep,index)=>{
+                    const handleEpDetails=()=>{
+                        navigate(`listdetails/${index}`)
+                    }
                     return(
-            <div className='list1 mt-3' key={index}>
+            <div className='list1 mt-3' key={index} onClick={()=>handleEpDetails()}>
                             
                         <div  className="">
                             <div className=''>
