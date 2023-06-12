@@ -116,6 +116,7 @@ const Player = () => {
         console.log(songIndex)
         //setSongIndex(songIndex-1)
     }
+    
 
     useEffect(() => {
         const vol = () => {
@@ -157,7 +158,7 @@ const Player = () => {
 
 
                 </div>
-                <audio src={track?.music} ref={audioRef} onLoadedData={handleLoad} onEndedCapture={(e) => setIsPlaying(false)} />
+                <audio src={track?.music} ref={audioRef} onLoadedData={handleLoad} onEnded={next()} onEndedCapture={(e) => setIsPlaying(false)} />
                 <div>
                     <span>{format(1000 * currentTime)}</span>
                     <input type="range" className="music-range" value={currentTime} defaultValue={0} onChange={handleProgressChange} ref={progressBarRef} max={duration} />
