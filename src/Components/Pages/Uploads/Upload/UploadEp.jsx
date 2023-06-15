@@ -16,6 +16,7 @@ const UploadEp = () => {
     epTitle: "",
     cover: "",
     artist: first&&first.username,
+    artistId:first._id,
     genre: "HipHop",
     track: null
   })

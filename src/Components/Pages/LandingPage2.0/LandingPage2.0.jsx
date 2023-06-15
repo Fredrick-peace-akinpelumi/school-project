@@ -30,7 +30,7 @@ const LandingPage2=()=>{
                 <TopCharts />
             </div>
             <NewRelease />
-            <PopInArea />
+           
 
         </div>
     )
