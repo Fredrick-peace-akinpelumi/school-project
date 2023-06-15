@@ -3,9 +3,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ClipLoader } from "react-spinners";
 import axios from 'axios'
 import useFetchDetails from '../../../customHooks/UseFetchDetails';
+import { useNavigate } from 'react-router-dom';
 
 
 const UploadAlbum = () => {
+  const navigate = useNavigate()
   const [first] = useFetchDetails();
   const [Loading, setLoading] = useState(false)
   const [trackArr, settrackArr] = useState([])
@@ -15,7 +17,7 @@ const UploadAlbum = () => {
     cover: "",
     artist: first&&first.username,
     artistId:first._id,
-    genre: "",
+    genre: "HipHop",
     track: null
   })
   const [tracksData, settracksData] = useState({
@@ -68,6 +70,7 @@ const UploadAlbum = () => {
         tracksData.musicURL=res.data.secure_url;
         console.log(tracksData);
         setLoading(false);
+        navigate('/playlist')
 
       } catch (error) {
         console.log(error);
@@ -181,6 +184,7 @@ const UploadAlbum = () => {
               <i className='btn btn-primary'
               disabled={Loading}
                 onClick={(e) => addTrack(e)}
+                
               >Add Track</i>
             </div>
 

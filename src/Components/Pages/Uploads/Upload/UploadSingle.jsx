@@ -3,8 +3,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ClipLoader } from "react-spinners";
 import axios from 'axios'
 import useFetchDetails from '../../../customHooks/UseFetchDetails';
+import { useNavigate } from 'react-router-dom';
 
 const UploadSingle = () => {
+  const navigate =useNavigate()
   const [first]=useFetchDetails();
   const [songData, setsongData] = useState({
     musicTitle: '',
@@ -42,6 +44,7 @@ const UploadSingle = () => {
       // setpreviewSource(res.data.secure_url);
       songData.cover = res.data.secure_url;
       setLoading(false);      
+      navigate('/playlist')
     } catch (error) {
       console.log(error);
     }

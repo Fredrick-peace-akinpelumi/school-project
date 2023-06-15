@@ -16,20 +16,13 @@ const PlayList = () => {
 
     const navigate = useNavigate()
     useEffect(() => {
-    axios.get('http://localhost:5000/api/songs/extendedPlay/')
+        axios.get('http://localhost:5000/api/songs/extendedPlay/')
     .then((res)=>{
         setgetEp(res.data)
         console.log(res.data);
-        if (loading) {
-            return(
-                <div className='text-center mt-5'>
-                    <PulseLoader size={30} color="red"/>
-                </div>
-            )   
-        }
     })
     .catch((err)=>{
-      toast.error(err);
+      toast.error(err.message);
     })
     axios.get('http://localhost:5000/api/songs/album/')
     .then((res)=>{
@@ -37,9 +30,17 @@ const PlayList = () => {
         console.log(res.data);
     })
     .catch((err)=>{
-      toast.error(err);
+        console.log(err);
     })
-  }, [])
+}, [])
+
+if (loading) {
+    return(
+        <div className='text-center mt-5'>
+            <PulseLoader size={30} color="red"/>
+        </div>
+    )   
+}
     
 
     
