@@ -101,7 +101,7 @@ const UploadEp = () => {
     console.log(songData);
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/songs/extendedPlay/', { ...songData, artist:first && first.username, track:trackArr })
+      const response = await axios.post('http://localhost:5000/api/songs/extendedPlay/', { ...songData, artist:first && first.username, track:trackArr,artistId:first && first._id })
       toast.success(response.data.message);
       setLoading(false);
     } catch (error) {

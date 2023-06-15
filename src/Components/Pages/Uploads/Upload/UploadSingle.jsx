@@ -12,10 +12,11 @@ const UploadSingle = () => {
     musicTitle: '',
     cover:'',
     music:'',
-    artistId:first._id,
+    artistId:first&&first._id,
     genre:'HipHop',
     artist:first&&first.username
   })
+  console.log(first&&first._id)
   const [previewSource, setpreviewSource] = useState("")
   const [previewMusic, setpreviewMusic] = useState("")
   const [Loading, setLoading] = useState(false)
@@ -72,7 +73,7 @@ const UploadSingle = () => {
     await uploadImage(previewSource);
     try {
       setLoading(true);
-      const response= await axios.post('http://localhost:5000/api/songs/singles/', {...songData,artist:first&&first.username})
+      const response= await axios.post('http://localhost:5000/api/songs/singles/', {...songData,artist:first&&first.username,artistId:first&&first._id})
       toast(response.data.message);
       setLoading(false);
       handleCoverFile("");
