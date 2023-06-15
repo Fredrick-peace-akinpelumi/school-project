@@ -3,9 +3,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ClipLoader } from "react-spinners";
 import axios from 'axios'
 import useFetchDetails from '../../../customHooks/UseFetchDetails';
+import { useNavigate } from 'react-router-dom';
 
 
 const UploadEp = () => {
+  const navigate = useNavigate()
   const [first] = useFetchDetails();
   const [Loading, setLoading] = useState(false)
   const [trackArr, settrackArr] = useState([])
@@ -14,7 +16,7 @@ const UploadEp = () => {
     epTitle: "",
     cover: "",
     artist: first&&first.username,
-    genre: "",
+    genre: "HipHop",
     track: null
   })
   const [tracksData, settracksData] = useState({
@@ -67,6 +69,7 @@ const UploadEp = () => {
         tracksData.musicURL=res.data.secure_url;
         console.log(tracksData);
         setLoading(false);
+        navigate('/playlist')
 
       } catch (error) {
         console.log(error);
@@ -179,9 +182,13 @@ const UploadEp = () => {
                 accept="audio/*"
                 className='form-control mb-2' />
               <p className='text-white'>Added {length} of 5</p>
-              <i className='btn btn-primary'
+              <button 
+              disabled={Loading}
+              className='btn btn-primary'>
+              <i
                 onClick={(e) => addTrack(e)}
               >Add Track</i>
+              </button>
             </div>
 
             <button disabled={Loading} className='btn btn-success rounded-pill mt-4' type='submit'>Upload EP</button>

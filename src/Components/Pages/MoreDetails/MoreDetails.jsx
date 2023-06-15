@@ -12,7 +12,7 @@ const MoreDetails = () => {
     const [followNo, setfollowNo] = useState(0)
     const [showBtn, setshowBtn] = useState(true)
     const {musicdetails}=useParams()
-    // 09160261836
+
 
     const track=playList[musicdetails]
     useEffect(()=>{

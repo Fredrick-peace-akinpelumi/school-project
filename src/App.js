@@ -15,7 +15,6 @@ import MobileNav from './Components/Static/Navbar/MobileNav/MobileNav';
 import UploadAlbum from './Components/Pages/Uploads/Upload/UploadAlbum';
 import LandingPage2 from './Components/Pages/LandingPage2.0/LandingPage2.0';
 import Player from './Components/Player/Player';
-import UserUploads from './Components/Pages/Uploads/UserUploads/UserUploads';
 import MoreDetails from './Components/Pages/MoreDetails/MoreDetails';
 import TimeAgo from 'javascript-time-ago'
 
@@ -41,9 +40,8 @@ function App() {
       <Route path='uploadSingle' element={<UploadSingle/>}/>
       <Route path='/uploadEp' element={<UploadEp/>}/>
       <Route path='/uploadAlbum' element={<UploadAlbum/>}/>
-      <Route path='/useruploads' element={<UserUploads/>}/>
       <Route path='/moredetails/:musicdetails' element={<MoreDetails/>}/>
-      <Route path='/listdetails/:trackdetails' element={<ListDetails/>}/> 
+      <Route path='playlist/listdetails/:trackdetails' element={<ListDetails/>}/> 
       <Route path='*' element={<NotFound/>}/>
     </Route>
   </Routes>
