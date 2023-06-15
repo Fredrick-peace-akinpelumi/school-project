@@ -11,6 +11,8 @@ const Profile = () => {
   const [first] = useFetchDetails();
   // let show = false
 
+  console.log(first)
+
 
  const showDetails =()=>{
     setshow(true)
@@ -39,7 +41,7 @@ const Profile = () => {
 
         </div>
         <hr className='text-white'/>
-        {show ?<UsersData/>:""}
+        {show ?<UsersData followers={first.followers}  followings={first.followings}/>:""}
         
       </div>
       <Likes/>

@@ -10,6 +10,7 @@ const UploadSingle = () => {
     musicTitle: '',
     cover:'',
     music:'',
+    artistId:first._id,
     genre:'HipHop',
     artist:first&&first.username
   })

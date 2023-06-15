@@ -22,10 +22,10 @@ const Player = () => {
     const [currentTime, setCurrentTime] = useState(0)
     const { playList, songIndex, setSongIndex } = MusicState()
     useEffect(()=>{
-        const token=JSON.parse(localStorage.activeSong);
+        const token=localStorage.getItem("activeSong")?JSON.parse(localStorage.getItem("activeSong")): 0;
         setSongIndex(token)
     },[])
-    const [indexsetIndex] = useState(0);
+    //const [indexsetIndex] = useState(0);
     const track = playList[songIndex]
 
 
@@ -95,6 +95,7 @@ const Player = () => {
             setSongIndex(songIndex - 1)
 
         }
+        Play()
     }
 
 
@@ -113,6 +114,7 @@ const Player = () => {
             localStorage.activeSong = JSON.stringify(songIndex + 1)
             setSongIndex(songIndex + 1)
         }
+        Play()
         console.log(songIndex)
         //setSongIndex(songIndex-1)
     }
@@ -138,6 +140,12 @@ const Player = () => {
         audioRef.current.pause()
         setIsPlaying(false)
     }
+    const handleNextPlay=()=>{
+        setSongIndex(Number(songIndex) + 1)
+        console.log(songIndex)
+        Play()
+
+    }
     return (
         <div className="Player">
             <div>
@@ -158,7 +166,7 @@ const Player = () => {
 
 
                 </div>
-                <audio src={track?.music} ref={audioRef} onLoadedData={handleLoad} onEnded={next()} onEndedCapture={(e) => setIsPlaying(false)} />
+                <audio src={track?.music} ref={audioRef} onLoadedData={handleLoad} onEnded={handleNextPlay} onEndedCapture={(e) => setIsPlaying(false)} />
                 <div>
                     <span>{format(1000 * currentTime)}</span>
                     <input type="range" className="music-range" value={currentTime} defaultValue={0} onChange={handleProgressChange} ref={progressBarRef} max={duration} />
