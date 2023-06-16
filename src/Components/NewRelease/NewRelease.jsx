@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const NewRelease=()=>{
     const navigate = useNavigate()
-    const {allSongs,setSongIndex,loading}=MusicState()
+    const {allSongs,setSongIndex,loading,setPlayList}=MusicState()
   
     if (loading) {
         return(
@@ -31,6 +31,7 @@ const NewRelease=()=>{
                 {allSongs?.map((song,index)=>{
                     const handleSongToPlay=()=>{
                         // setSongIndex(index)
+                        setPlayList(allSongs)
                         navigate(`/moredetails/${index}`)
                         
                     }

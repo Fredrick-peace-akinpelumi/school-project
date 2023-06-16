@@ -45,7 +45,7 @@ const UploadSingle = () => {
       // setpreviewSource(res.data.secure_url);
       songData.cover = res.data.secure_url;
       setLoading(false);      
-      navigate('/playlist')
+      navigate('/')
     } catch (error) {
       console.log(error);
     }

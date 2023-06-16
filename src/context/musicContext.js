@@ -8,8 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 export const MusicContext=createContext();
 
 const MusicContextProvider=({children})=>{
-    const [playList,setPlayList]= useState({});
+    const [playList,setPlayList]= useState(localStorage.getItem("playlist") ? JSON.parse(localStorage.getItem("playlist")) :[]);
     const [allSongs,setAllSongs]=useState([])
+    const [allEp,setAllEp]=useState([])
     const [loading,setLoading]=useState(false)
     const [songIndex, setSongIndex]=useState(0)
     
@@ -18,10 +19,15 @@ const MusicContextProvider=({children})=>{
     useEffect(()=>{
         const getAllSongs=async()=>{
             setLoading(true)
+            console.log("called")
+
             try {
                 const {data}= await axios.get(`${apiUrl}/songs/singles`)
                 setAllSongs(data)
-                setPlayList(data)
+                if(playList===[]){
+                    setPlayList(data)
+                    localStorage.setItem("playlist", JSON.stringify(data))
+                }
                 setLoading(false)
             } catch (error) {
                 toast.error(error.message)
@@ -30,14 +36,16 @@ const MusicContextProvider=({children})=>{
             }
             
         }
-        getAllSongs()
+        if(allSongs.length===0){
+            getAllSongs()
+        }
     },[])
 
     // const addMusicToPlayer=(num)=>{
     //     setCurrentMusic(num)
     // }
     return(
-        <MusicContext.Provider value={{playList, setPlayList,loading,setLoading,allSongs,setAllSongs,songIndex,setSongIndex}}>
+        <MusicContext.Provider value={{playList, setPlayList,loading,setLoading,allSongs,setAllSongs,songIndex,setSongIndex,allEp, setAllEp}}>
             {children}
         </MusicContext.Provider>
     )

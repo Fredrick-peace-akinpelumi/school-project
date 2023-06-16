@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import './MoreDetail.css'
-import chartpic from "../../../images/chart.png"
 import head from "../../../images/head.PNG"
+import ReactTimeAgo from 'react-time-ago'
 import  Comment from '../../Comments/Comment'
 import { MusicState } from '../../../context/musicContext'
 import { useParams } from 'react-router-dom'
@@ -55,6 +55,7 @@ const MoreDetails = () => {
         <div>
             <h3 className='text-white'>{track?.artist}</h3>
         <p className='text-danger'>500,995 <b>Followers</b></p>
+        <ReactTimeAgo date={new Date(track.createdAt)} locale={"en-US"} className='text-white' />
         </div>
         </div>
         {

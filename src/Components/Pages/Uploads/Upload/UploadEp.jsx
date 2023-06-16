@@ -21,8 +21,9 @@ const UploadEp = () => {
     track: null
   })
   const [tracksData, settracksData] = useState({
-    musicURL: '',
-    trackTitle: ''
+    music: '',
+    trackTitle: '',
+    cover:""
   })
 
   const [previewSource, setpreviewSource] = useState("")
@@ -51,6 +52,7 @@ const UploadEp = () => {
       const res = await axios.post("https://api.cloudinary.com/v1_1/daqidvjyp/upload", imageData);
       // setpreviewSource(res.data.secure_url);
       songData.cover = res.data.secure_url;
+      tracksData.cover=res.data.secure_url
       setLoading(false);
     } catch (error) {
       console.log(error);

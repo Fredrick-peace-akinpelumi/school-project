@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const PlayList = () => {
-    const {loading}=MusicState()
+    const {loading,allEp,setAllEp,setPlayList}=MusicState()
     const [getEp, setgetEp] = useState([])
     const [getAlbum, setgetAlbum] = useState([])
 
@@ -18,7 +18,7 @@ const PlayList = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/songs/extendedPlay/')
     .then((res)=>{
-        setgetEp(res.data)
+        setAllEp(res.data)
         console.log(res.data);
     })
     .catch((err)=>{
@@ -32,7 +32,7 @@ const PlayList = () => {
     .catch((err)=>{
         console.log(err);
     })
-}, [])
+    }, [])
 
 if (loading) {
     return(
@@ -55,6 +55,7 @@ if (loading) {
         <div className="d-flex flex-wrap gap-5">
             {
                 getAlbum?.map((album,index)=>{
+                    console.log(album)
                     const handleAlbumDetails=()=>{
                         navigate(`listdetails/${index}`)
                     }
@@ -83,8 +84,9 @@ if (loading) {
         </div>
         <div className="d-flex flex-wrap gap-5">
             {
-                getEp?.map((ep,index)=>{
+                allEp?.map((ep,index)=>{
                     const handleEpDetails=()=>{
+                        setPlayList(ep.track)
                         navigate(`listdetails/${index}`)
                     }
                     return(

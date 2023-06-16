@@ -21,8 +21,9 @@ const UploadAlbum = () => {
     track: null
   })
   const [tracksData, settracksData] = useState({
-    musicURL: '',
-    trackTitle: ''
+    music: '',
+    trackTitle: '',
+    cover:""
   })
 
   const [previewSource, setpreviewSource] = useState("")
