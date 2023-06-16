@@ -102,7 +102,7 @@ const UploadAlbum = () => {
     console.log(songData);
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/api/songs/album/', { ...songData, artist:first && first.username, track:trackArr, artistId:first && first._id })
+      const response = await axios.post('https://musica-9gg8.onrender.com/api/songs/album/', { ...songData, artist:first && first.username, track:trackArr, artistId:first && first._id })
       toast.success(response.data.message);
       setLoading(false);
     } catch (error) {

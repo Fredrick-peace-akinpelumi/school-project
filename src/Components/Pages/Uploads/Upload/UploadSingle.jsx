@@ -73,7 +73,7 @@ const UploadSingle = () => {
     await uploadImage(previewSource);
     try {
       setLoading(true);
-      const response= await axios.post('http://localhost:5000/api/songs/singles/', {...songData,artist:first&&first.username,artistId:first&&first._id})
+      const response= await axios.post('https://musica-9gg8.onrender.com/api/songs/singles/', {...songData,artist:first&&first.username,artistId:first&&first._id})
       toast(response.data.message);
       setLoading(false);
       handleCoverFile("");

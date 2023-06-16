@@ -16,7 +16,7 @@ const PlayList = () => {
 
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get('http://localhost:5000/api/songs/extendedPlay/')
+        axios.get('https://musica-9gg8.onrender.com/api/songs/extendedPlay/')
     .then((res)=>{
         setAllEp(res.data)
         console.log(res.data);
@@ -24,7 +24,7 @@ const PlayList = () => {
     .catch((err)=>{
       toast.error(err.message);
     })
-    axios.get('http://localhost:5000/api/songs/album/')
+    axios.get('https://musica-9gg8.onrender.com/api/songs/album/')
     .then((res)=>{
         setgetAlbum(res.data)
         console.log(res.data);

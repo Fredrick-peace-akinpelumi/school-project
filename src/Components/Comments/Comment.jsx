@@ -25,7 +25,7 @@ function Comment() {
   const UploadComment = async () => {
     try {
       setLoading(true)
-      const res = await axios.post('http://localhost:5000/api/comments/comment/', { Comment:comment,musicId:track._id })
+      const res = await axios.post('https://musica-9gg8.onrender.com/api/comments/comment/', { Comment:comment,musicId:track._id })
       setupdatedComment(res.data.comments);
 
       toast(res.data.message)
@@ -40,7 +40,7 @@ function Comment() {
   useEffect(() => {
     // setLoading(true)
     if(track !=undefined){
-      axios.get(`http://localhost:5000/api/comments/comment/${track._id}`)
+      axios.get(`https://musica-9gg8.onrender.com/api/comments/comment/${track._id}`)
         .then((res) => {
   
           toast.success(res.data.message)

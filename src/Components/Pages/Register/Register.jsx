@@ -22,7 +22,7 @@ const Register = () => {
         },
         onSubmit: (values) => {
             setLoading(true)
-            axios.post('http://localhost:5000/api/user/register/', values)
+            axios.post('https://musica-9gg8.onrender.com/api/user/register/', values)
             .then((res)=>{
                 console.log(res);
 
